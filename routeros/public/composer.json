@@ -1,0 +1,10 @@
+{
+    "name": "root/public",
+    "authors": [
+        {
+            "name": "ismaelmelus",
+            "email": "ismael.melus@gmail.com"
+        }
+    ],
+    "require": {}
+}

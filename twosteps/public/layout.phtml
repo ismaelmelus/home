@@ -1,0 +1,35 @@
+<?php 
+// layout.phtml (second step)
+echo $this->doctype(Zend_View_Helper_Doctype::XHTML1_STRICT); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+  <?php
+  echo $this->headTitle($this->info('name'))
+            ->headTitle('Powered by Ossigeno ' . Otk_Version::VERSION)
+            ->setSeparator(' - '); 
+  echo $this->headMeta()->appendName('name', $this->info('name'))
+                        ->appendName('description', $this->info('description'))
+                        ->appendName('keywords', $this->info('keywords'))
+                        ->appendName('author', $this->info('author'))
+                        ->appendName('generator', 'Ossigeno ' . Otk_Version::VERSION)
+                        ->appendName('reply-to', $this->info('admin'))
+                        ->appendHttpEquiv('Content-Type', 'text/html; charset=utf-8');
+  echo $this->headLink(array(
+                        'href' => $this->info('graphicBase') . 'favicon.ico',
+                        'type' => 'image/x-icon',
+                        'rel' => 'icon'
+            ))
+            ->appendStylesheet($this->info('graphicBase') . 'reset.css')
+            ->appendStylesheet($this->info('graphicBase') . 'style.css');
+  echo $this->dojo()
+            ->addStylesheetModule('dijit.themes.tundra')
+            ->requireModule('dijit.Editor');
+  echo $this->headScript();
+  ?>
+</head>  
+<body class="tundra">  
+<?php echo $this->render("{$this->template}/header.phtml"); ?>
+<?php echo $this->layout()->content; ?>
+<?php echo $this->render("{$this->template}/footer.phtml"); ?>
+</body>  
+</html>

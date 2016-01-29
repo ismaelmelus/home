@@ -1,0 +1,25 @@
+<?php
+// views/scripts/article/index.phtml (first step)
+$this->headTitle($this->article['title']); ?>
+
+<div class="content_article">
+    <div class="author">
+        <?php printf($this->translate('Posted by %s'),
+                    '<a href="' . $this->url(array('slug' => $this->article['author']['id']), 'user') . '">' . $this->article['author']['nick'] . '</a>');
+        ?>
+    </div>
+    <div class="date">
+        <?php printf($this->translate('On %s'), 
+                     $this->date($this->article['created_at'])); ?>
+    </div>
+    <div class="image">
+        <?php echo $this->preview($this->article['image']); ?>
+    </div>
+    <div class="description">
+        <?php echo $this->article['description']; ?>
+    </div>
+    <div class="text">
+        <?php echo $this->article['text']; ?>
+    </div>
+    ...
+</div>

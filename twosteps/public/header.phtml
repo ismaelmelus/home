@@ -1,0 +1,26 @@
+<?php ?>
+
+<!-- header.phtml -->
+<div id="container">
+    <div id="header">
+        <div id="logo"><a href="<?php echo $this->url(array(), 'default', true); ?>"> </a></div>
+        <?php echo $this->cachedBlock('header'); ?>
+    </div>
+    <div id="menu">
+        <div id="flash_messenger">
+            <?php echo $this->layout()->flash_messenger; ?>
+        </div>
+        <div id="admin">
+            <?php echo $this->layout()->admin; ?>
+        </div>
+        <div id="navigation">
+            <?php echo $this->layout()->navigation; ?>
+        </div>
+        <?php echo $this->cachedBlock('menu'); ?>
+    </div>
+    <div id="content">
+        <? if($this->headTitle()): ?>
+            <h1><? echo strip_tags($this->headTitle()); ?></h1>
+        <? endif; ?>
+        <a accesskey="2"></a>
+        <div class="data">
